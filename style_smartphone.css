@@ -77,3 +77,7 @@ footer {
     margin: 5px;
   }
 }
+.no-js-warning {
+  color: red;
+  font-size: large;
+}

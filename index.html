@@ -5,24 +5,30 @@
   <title>押すたびに当たる確率が減っていくボタン</title>
   <link rel="stylesheet" href="style.css">
   <meta name="description" content="当たる確率が押すごとに(1/2)^nの確率ずつ減っていくボタンです。nは押した回数です。">
-  <meta name="author" content="0r4nggg">
-  <meta name="keywords" content="ボタン,(1/2)^n,確率,無限級数">
-  <meta name="google-site-verification" content="acOBCD6cvl6ZiBS6672ZqjaJVifXzGXVZb-TrRa7a1E" />
   <script>
     var n = 0;
     var decimalPlaces = 2;
     var threshold = 12;
     var maxDecimalPlaces = 64;
 
+    var winSound = new Audio('8bit獲得6.mp3');
+    var loseSound = new Audio('8bit失敗3.mp3');
+
     function EVENT1() {
       n += 1;
       var probability = 0.5 ** n;
       var result = (Math.random() < probability) ? "当たり！" : "ハズレ";
 
+      if (result === "当たり！") {
+        winSound.play();
+      } else {
+        loseSound.play();
+      }
+
       if (decimalPlaces < threshold) {
         decimalPlaces += 1;
       } else if (decimalPlaces >= maxDecimalPlaces) {
-        decimalPlaces = 2; 
+        decimalPlaces = 2; // 64桁を超えた後は2桁に戻す
       } else {
         decimalPlaces += 1;
       }

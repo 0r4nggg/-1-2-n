@@ -1,4 +1,10 @@
-html, body { height: 100%; }
+html, body { 
+  height: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 body {
   margin: 0;
   color: #ffffff;
@@ -10,4 +16,16 @@ h1 {
   font-size: x-large;
   font-weight: normal;
   color: #ffffff;
+}
+.container {
+  text-align: center;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+button img {
+  width: 130px;
+  height: 100px;
 }

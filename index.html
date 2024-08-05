@@ -5,10 +5,22 @@
   <title>押すたびに当たる確率が減っていくボタン</title>
   <link rel="stylesheet" href="style.css">
   <meta name="description" content="当たる確率が押すごとに(1/2)^nの確率ずつ減っていくボタンです。nは押した回数です。">
+  <script>
+  <!--
+    var n = 0;
+    function EVENT1(){document.write(Math.floor(Math.random()+0.5**n));} 
+  //-->
+  </script>
 </head>
 <body>
   <h1>(1/2)^nボタン（nは押した回数！）</h1>
-  <button type="button" name="button" value="1/2">
+  <button type="button" name="button" value="
+    1/2 " onClick="EVENT1()">
     <img src="m-0917-3d-icon.png" width="65" height="50" alt="ボタン">
+    <script>
+    <!--
+      var n += 1;
+    //-->
+    </script>
   </button>
 </body>

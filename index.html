@@ -7,28 +7,28 @@
   <meta name="description" content="当たる確率が押すごとに(1/2)^nの確率ずつ減っていくボタンです。nは押した回数です。">
   <script>
     var n = 0;
-    var decimalPlaces = 2; // 初期の小数点以下の桁数
-    var increasing = true; // 桁数が増えるか減るかを制御するフラグ
+    var decimalPlaces = 2; 
+    var increasing = true; 
 
     function EVENT1() {
       n += 1;
       var probability = 0.5 ** n;
       var result = (Math.random() < probability) ? "当たり！" : "ハズレ";
 
-      // 小数点以下の桁数を増減させるロジック
+      
       if (increasing) {
         decimalPlaces += 1;
-        if (decimalPlaces >= 12) { // 12.5以降から減少を開始
+        if (decimalPlaces >= 12) { 
           increasing = false;
         }
       } else {
         decimalPlaces -= 1;
-        if (decimalPlaces <= 2) { // 最小桁数に達したら増加を再開
+        if (decimalPlaces <= 2) { 
           increasing = true;
         }
       }
 
-      // 確率を表示
+      
       document.getElementById("result").innerText = result;
       document.getElementById("probability").innerText = "現在の確率: " + (probability * 100).toFixed(decimalPlaces) + "%";
     }

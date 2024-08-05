@@ -9,9 +9,10 @@
     var n = 0;
     function EVENT1() {
       n += 1;
-      var result = (Math.random() < 0.5 ** n) ? "当たり！" : "ハズレ";
+      var probability = 0.5 ** n;
+      var result = (Math.random() < probability) ? "当たり！" : "ハズレ";
       document.getElementById("result").innerText = result;
-      document.getElementById("probability").innerText = "現在の確率: " + (0.5 ** n).toFixed(10);
+      document.getElementById("probability").innerText = "現在の確率: " + (probability * 100).toFixed(2) + "%";
     }
   </script>
 </head>
@@ -23,6 +24,6 @@
     </button>
     <p id="result"></p>
   </div>
-  <div id="probability">現在の確率: 1.0000000000</div>
+  <div id="probability">現在の確率: 100.00%</div>
 </body>
 </html>

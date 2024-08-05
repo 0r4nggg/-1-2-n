@@ -12,7 +12,7 @@
       var probability = 0.5 ** n;
       var result = (Math.random() < probability) ? "当たり！" : "ハズレ";
       document.getElementById("result").innerText = result;
-      document.getElementById("probability").innerText = "現在の確率: " + (probability * 100).toFixed(100) + "%";
+      document.getElementById("probability").innerText = "現在の確率: " + (probability * 100).toFixed(30) + "%";
     }
   </script>
 </head>

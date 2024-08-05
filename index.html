@@ -8,27 +8,21 @@
   <script>
     var n = 0;
     var decimalPlaces = 2; 
-    var increasing = true; 
+    var threshold = 12; 
 
     function EVENT1() {
       n += 1;
       var probability = 0.5 ** n;
       var result = (Math.random() < probability) ? "当たり！" : "ハズレ";
 
-      
-      if (increasing) {
-        decimalPlaces += 1;
-        if (decimalPlaces >= 12) { 
-          increasing = false;
-        }
+     
+      if (decimalPlaces < threshold) {
+        decimalPlaces += 1; 
       } else {
-        decimalPlaces -= 1;
-        if (decimalPlaces <= 2) { 
-          increasing = true;
-        }
+        decimalPlaces += 1; 
       }
 
-      
+     
       document.getElementById("result").innerText = result;
       document.getElementById("probability").innerText = "現在の確率: " + (probability * 100).toFixed(decimalPlaces) + "%";
     }

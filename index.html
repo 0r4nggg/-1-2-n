@@ -7,24 +7,30 @@
   <meta name="description" content="当たる確率が押すごとに(1/2)^nの確率ずつ減っていくボタンです。nは押した回数です。">
   <script>
     var n = 0;
-    var decimalPlaces = 2; 
-    var threshold = 12; 
+    var decimalPlaces = 2;
+    var threshold = 12;
+    var maxDecimalPlaces = 64;
 
     function EVENT1() {
       n += 1;
       var probability = 0.5 ** n;
       var result = (Math.random() < probability) ? "当たり！" : "ハズレ";
 
-     
       if (decimalPlaces < threshold) {
-        decimalPlaces += 1; 
+        decimalPlaces += 1;
+      } else if (decimalPlaces >= maxDecimalPlaces) {
+        decimalPlaces = 2; // 64桁を超えた後は2桁に戻す
       } else {
-        decimalPlaces += 1; 
+        decimalPlaces += 1;
       }
 
-     
+      var probabilityPercent = (probability * 100).toFixed(decimalPlaces);
+      if (decimalPlaces >= maxDecimalPlaces || parseFloat(probabilityPercent) === 0) {
+        probabilityPercent = "0.00";
+      }
+
       document.getElementById("result").innerText = result;
-      document.getElementById("probability").innerText = "現在の確率: " + (probability * 100).toFixed(decimalPlaces) + "%";
+      document.getElementById("probability").innerText = "現在の確率: " + probabilityPercent + "%";
     }
   </script>
 </head>

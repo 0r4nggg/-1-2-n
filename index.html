@@ -11,6 +11,7 @@
       n += 1;
       var result = (Math.random() < 0.5 ** n) ? "当たり！" : "ハズレ";
       document.getElementById("result").innerText = result;
+      document.getElementById("probability").innerText = "現在の確率: " + (0.5 ** n).toFixed(10);
     }
   </script>
 </head>
@@ -22,5 +23,6 @@
     </button>
     <p id="result"></p>
   </div>
+  <div id="probability">現在の確率: 1.0000000000</div>
 </body>
 </html>
